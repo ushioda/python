@@ -5,15 +5,14 @@ import urllib3
 from bs4 import BeautifulSoup
  
 http = urllib3.PoolManager()
-r = http.request('GET', 'http://en.wikipedia.org/wiki/List_of_countries_by_GDP_(PPP)_per_capita')
-
+r = http.request('GET', 'http://aoimorirailway.com/jikoku/zikoku_2_018.html')
 s = r.data
 
 soup = BeautifulSoup(s)
-table = soup.findall("table",attrs={ "class" : "table-horizontal-line"})
+
+table = soup.findAll("table")
 print table
 
-# print soup.prettify()
 
-# for a in soup("a"):
-#   print a.contents
+# row = table.findAll("tr")
+# print row
